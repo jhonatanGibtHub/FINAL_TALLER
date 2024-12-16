@@ -3,7 +3,7 @@ package Customer_Management.routes;
 public class routes {
     
     //ruta base para el cliente
-    public static final String Client = "/clients";
+    public static final String Client = "/client";
 
     //rutas especificas
     public static final String GetAll = "/getAll";
