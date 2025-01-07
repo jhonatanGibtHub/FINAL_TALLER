@@ -1,4 +1,4 @@
-package com.tallerdesarrollo.USER_MANAGEMENT;
+package com.tallerdesarrollo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
