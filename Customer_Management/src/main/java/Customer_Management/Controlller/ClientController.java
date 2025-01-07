@@ -3,11 +3,14 @@ package Customer_Management.Controlller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import Customer_Management.Model.ClientModel;
 import Customer_Management.Service.ClientService;
 import Customer_Management.routes.routes;
+import Customer_Management.DTO.*;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,12 +20,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
+
 @RestController
 @RequestMapping(routes.Client)
 public class ClientController {
 
     @Autowired
-    ClientService clientService;
+    ClientService clientService; 
 
     @GetMapping(routes.GetAll)
     public List<ClientModel> getAll() {
@@ -49,4 +53,6 @@ public class ClientController {
         return clientService.delete(id);
     }
     
+
+
 }
