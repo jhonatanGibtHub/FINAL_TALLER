@@ -12,9 +12,9 @@ public class PaymentModel {
     @Column(name = "id_pago")
     public Integer idPay;
 
-    @Id
-    @Column(name = "id_comprobante")
-    public Integer idVoucher;
+    //@Id
+   // @Column(name = "id_comprobante")
+    //public Integer idVoucher;
 
     @Column(name = "metodo_pago_nombre")
     public String payment_method_name;
