@@ -15,7 +15,9 @@ public class PaymentModel {
     //@Id
    // @Column(name = "id_comprobante")
     //public Integer idVoucher;
-
+    @Column(name = "id_comprobante")
+    private Integer idVoucher;
+    
     @Column(name = "metodo_pago_nombre")
     public String payment_method_name;
 
