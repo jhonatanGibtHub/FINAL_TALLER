@@ -15,6 +15,20 @@ public class ProductoService {
     private ProductoRepository productoRepository;
 
     
+    public ProductoDTO addProducto(ProductoDTO productoDTO) {
+        ProductoModel producto = toEntity(productoDTO);
+        return toDTO(productoRepository.save(producto));
+    } 
+
+    private ProductoDTO toDTO(ProductoModel producto) {
+        ProductoDTO dto = new ProductoDTO();
+        dto.setNombre(producto.getNombre());
+        dto.setDescripcion(producto.getDescripcion());
+        dto.setPrecio(producto.getPrecio());
+        dto.setStock(producto.getStock());
+        dto.setCategoriaNombre(producto.getCategoriaNombre());
+        return dto;
+    }
 
     private ProductoModel toEntity(ProductoDTO dto) {
         ProductoModel producto = new ProductoModel();
