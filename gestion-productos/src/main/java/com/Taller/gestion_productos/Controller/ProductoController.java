@@ -1,7 +1,8 @@
 package com.Taller.gestion_productos.Controller;
 
-import com.Taller.gestion_productos.Model.ProductoModel;
-import com.Taller.gestion_productos.Repository.ProductoRepository;
+import com.Taller.gestion_productos.dto.ProductoDTO;
+
+import com.Taller.gestion_productos.Service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,12 +13,12 @@ import java.util.List;
 public class ProductoController {
 
     @Autowired
-    private ProductoRepository productoRepository;
+    private ProductoService productoService;
 
     // Obtener todos los productos
     @GetMapping
-    public List<ProductoModel> getAllProductos() {
-        return productoRepository.findAll();
+    public List<ProductoDTO> getAllProductos() {
+        return productoService.getAllProductos();
     }
 
     // Agregar un nuevo producto
