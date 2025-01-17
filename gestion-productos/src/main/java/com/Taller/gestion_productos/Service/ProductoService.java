@@ -13,7 +13,12 @@ public class ProductoService {
 
     @Autowired
     private ProductoRepository productoRepository;
-
+    public List<ProductoDTO> getAllProductos() {
+        return productoRepository.findAll()
+                .stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
+    } 
     
     public ProductoDTO addProducto(ProductoDTO productoDTO) {
         ProductoModel producto = toEntity(productoDTO);
