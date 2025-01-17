@@ -23,20 +23,19 @@ public class ProductoController {
 
     // Agregar un nuevo producto
     @PostMapping
-    public ProductoModel addProducto(@RequestBody ProductoModel producto) {
-        return productoRepository.save(producto);
+    public ProductoDTO addProducto(@RequestBody ProductoDTO productoDTO) {
+        return productoService.addProducto(productoDTO);
     }
 
     // Actualizar un producto por ID
     @PutMapping("/{id}")
-    public ProductoModel updateProducto(@PathVariable String id, @RequestBody ProductoModel producto) {
-        producto.setId(id);
-        return productoRepository.save(producto);
+    public ProductoDTO updateProducto(@PathVariable String id, @RequestBody ProductoDTO productoDTO) {
+        return productoService.updateProducto(id, productoDTO);
     }
 
     // Eliminar un producto por ID
     @DeleteMapping("/{id}")
     public void deleteProducto(@PathVariable String id) {
-        productoRepository.deleteById(id);
+        productoService.deleteProducto(id);
     }
 }
