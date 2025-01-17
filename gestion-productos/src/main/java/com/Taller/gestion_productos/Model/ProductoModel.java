@@ -14,7 +14,7 @@ public class ProductoModel {
     private int stock;
     private String categoriaNombre;
 
-    // Getters y setters
+
     public String getId() {
         return id;
     }
