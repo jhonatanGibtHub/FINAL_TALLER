@@ -3,14 +3,13 @@ package Customer_Management.Controlller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import Customer_Management.Error.LocalNotFoundException;
 import Customer_Management.Model.ClientModel;
 import Customer_Management.Service.ClientService;
 import Customer_Management.routes.routes;
-import Customer_Management.DTO.*;
+import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,12 +33,12 @@ public class ClientController {
     }
 
     @PostMapping(routes.Create)
-    public ClientModel Create(@RequestBody ClientModel model) {
+    public ClientModel Create(@Valid @RequestBody ClientModel model) {
         return clientService.add(model);
     }
 
     @GetMapping(routes.GetById)
-    public ClientModel getById(@PathVariable int id) {
+    public ClientModel getById(@PathVariable int id) throws LocalNotFoundException {
         return clientService.findById(id);
     }
 
@@ -49,7 +48,7 @@ public class ClientController {
     }
     
     @DeleteMapping(routes.Delete)
-    public boolean delete(@PathVariable int id) {
+    public boolean delete(@PathVariable int id) throws LocalNotFoundException {
         return clientService.delete(id);
     }
     
