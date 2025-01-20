@@ -26,22 +26,14 @@ public class ClientService implements IClientService{
 
     @Override
     public boolean delete(int id) throws LocalNotFoundException {
-        try {
-            repository.deleteById(id);
-            return true;
-        } catch (Exception e) {
-
-            throw new LocalNotFoundException("Error al eliminar el cliente");
-        }
-        
-       /*  //Busca en base de datos
+       //Busca en base de datos
         Optional<ClientModel> Cliente = repository.findById(id);
         //Validación
         if (!Cliente.isPresent()) {
             throw new LocalNotFoundException("Esta id no existe");
         }
         repository.deleteById(id);
-        return true; */
+        return true;
     }
 
     @Override
