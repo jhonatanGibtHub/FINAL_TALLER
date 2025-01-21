@@ -1,16 +1,23 @@
 package com.tallerdesarrollo.model;
 
-import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Data
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
+
 @Entity
-@Table(name = "rol_privilegio")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@IdClass(RolePrivilegeId.class) // Indica que esta entidad tiene una clave compuesta
 public class RolePrivilegeModel {
+
     @Id
-    @Column(name = "rol_nombre", nullable = false)
     private String rolNombre;
 
-    @Column(name = "privilegio_nombre", nullable = false)
+    @Id
     private String privilegioNombre;
 }

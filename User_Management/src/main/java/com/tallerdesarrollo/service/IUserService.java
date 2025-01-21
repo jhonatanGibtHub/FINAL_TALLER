@@ -1,20 +1,14 @@
 package com.tallerdesarrollo.service;
 
+import com.tallerdesarrollo.dto.UserRequest;
 import com.tallerdesarrollo.model.UserModel;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface IUserService {
-    UserModel createUser(UserModel userModel);
-
-    UserModel updateUser(Integer id, UserModel userModel);
-
+    UserModel createUser(UserRequest userRequest);
+    UserModel updateUser(Integer id, UserRequest userRequest);
     void deleteUser(Integer id);
-
-    Optional<UserModel> getUserById(Integer id);
-
-    List<UserModel> getAllUsers();
-
-    UserModel authenticateUser(String username, String password);
+    List<UserModel> getUsers();
+    UserModel getUserById(Integer id);
 }

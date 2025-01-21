@@ -1,16 +1,12 @@
 package com.tallerdesarrollo.service;
 
 import com.tallerdesarrollo.dto.UserRequest;
-import com.tallerdesarrollo.dto.UserResponse;
-import com.tallerdesarrollo.exception.CustomException;
 import com.tallerdesarrollo.model.UserModel;
 import com.tallerdesarrollo.repository.UserRepository;
-import com.tallerdesarrollo.utils.LoggerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class UserService implements IUserService {
@@ -19,28 +15,51 @@ public class UserService implements IUserService {
     private UserRepository userRepository;
 
     @Override
-    public UserResponse createUser(UserRequest request) {
-        try {
-            UserModel user = new UserModel();
-            // Set fields from request to user...
-            user = userRepository.save(user);
-            return mapToResponse(user);
-        } catch (Exception e) {
-            LoggerUtil.error("Error creating user: " + e.getMessage());
-            throw new CustomException("Error creating user");
-        }
+    public UserModel createUser(UserRequest userRequest) {
+        UserModel userModel = new UserModel();
+        userModel.setNombre(userRequest.getNombre());
+        userModel.setApellidoPaterno(userRequest.getApellidoPaterno());
+        userModel.setApellidoMaterno(userRequest.getApellidoMaterno());
+        userModel.setSexo(userRequest.getSexo());
+        userModel.setFechaNacimiento(userRequest.getFechaNacimiento());
+        userModel.setCelular(userRequest.getCelular());
+        userModel.setUsername(userRequest.getUsername());
+        userModel.setPassword(userRequest.getPassword());
+        userModel.setEstado(userRequest.getEstado());
+        userModel.setCodigoVendedor(userRequest.getCodigoVendedor());
+
+        return userRepository.save(userModel);
     }
 
     @Override
-    public List<UserResponse> getAllUsers() {
-        return userRepository.findAll().stream()
-                .map(this::mapToResponse)
-                .collect(Collectors.toList());
+    public UserModel updateUser(Integer id, UserRequest userRequest) {
+        UserModel userModel = userRepository.findById(id).orElseThrow();
+        userModel.setNombre(userRequest.getNombre());
+        userModel.setApellidoPaterno(userRequest.getApellidoPaterno());
+        userModel.setApellidoMaterno(userRequest.getApellidoMaterno());
+        userModel.setSexo(userRequest.getSexo());
+        userModel.setFechaNacimiento(userRequest.getFechaNacimiento());
+        userModel.setCelular(userRequest.getCelular());
+        userModel.setUsername(userRequest.getUsername());
+        userModel.setPassword(userRequest.getPassword());
+        userModel.setEstado(userRequest.getEstado());
+        userModel.setCodigoVendedor(userRequest.getCodigoVendedor());
+
+        return userRepository.save(userModel);
     }
 
-    private UserResponse mapToResponse(UserModel user) {
-        UserResponse response = new UserResponse();
-        // Map fields...
-        return response;
+    @Override
+    public void deleteUser(Integer id) {
+        userRepository.deleteById(id);
+    }
+
+    @Override
+    public List<UserModel> getUsers() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public UserModel getUserById(Integer id) {
+        return userRepository.findById(id).orElseThrow();
     }
 }

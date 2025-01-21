@@ -1,17 +1,26 @@
 package com.tallerdesarrollo.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+//import java.io.Serializable;
 
-@Data
 @Entity
-@Table(name = "usuario_rol")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@IdClass(UserRoleId.class) // Indica que se usará una clave compuesta
 public class UserRoleModel {
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "id_usuario", nullable = false)
-    private UserModel usuario;
 
-    @Column(name = "rol_nombre", nullable = false)
+    @Id
+    private Integer idUsuario;
+
+    @Id
     private String rolNombre;
+
+    @ManyToOne
+    @JoinColumn(name = "idUsuario", insertable = false, updatable = false) // Relación con la tabla `usuarios`
+    private UserModel userModel;
 }
+
