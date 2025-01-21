@@ -41,3 +41,46 @@ This generated password is for development use only. Your security configuration
 2025-01-21 08:22:22 - Starting ProtocolHandler ["http-nio-8080"]
 2025-01-21 08:22:22 - Tomcat started on port 8080 (http) with context path '/'
 2025-01-21 08:22:22 - Started UserManagementApplication in 7.785 seconds (process running for 8.759)
+2025-01-21 09:33:21 - HV000001: Hibernate Validator 8.0.0.Final
+2025-01-21 09:33:21 - Starting UserManagementApplication using Java 17.0.13 with PID 3240 (D:\Spring Boot\FINAL_TALLER\User_Management\target\classes started by Abel Calderon in D:\Spring Boot\FINAL_TALLER\User_Management)
+2025-01-21 09:33:21 - The following 1 profile is active: "dev"
+2025-01-21 09:33:22 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-21 09:33:22 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-21 09:33:23 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-21 09:33:23 - Finished Spring Data repository scanning in 113 ms. Found 2 JPA repository interfaces.
+2025-01-21 09:33:24 - Tomcat initialized with port 8080 (http)
+2025-01-21 09:33:24 - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-21 09:33:24 - Starting service [Tomcat]
+2025-01-21 09:33:24 - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-21 09:33:24 - Initializing Spring embedded WebApplicationContext
+2025-01-21 09:33:24 - Root WebApplicationContext: initialization completed in 2597 ms
+2025-01-21 09:33:24 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-21 09:33:24 - HHH000412: Hibernate ORM core version 6.6.4.Final
+2025-01-21 09:33:25 - HHH000026: Second-level cache disabled
+2025-01-21 09:33:25 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-21 09:33:25 - HikariPool-1 - Starting...
+2025-01-21 09:33:25 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4f02c31f
+2025-01-21 09:33:25 - HikariPool-1 - Start completed.
+2025-01-21 09:33:25 - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-21 09:33:26 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-21 09:33:27 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-21 09:33:27 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-21 09:33:28 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-21 09:33:28 - 
+
+Using generated security password: 7e322457-59ed-4d05-858f-342af4097f3b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-01-21 09:33:28 - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-01-21 09:33:28 - LiveReload server is running on port 35729
+2025-01-21 09:33:28 - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-21 09:33:29 - Tomcat started on port 8080 (http) with context path '/'
+2025-01-21 09:33:29 - Started UserManagementApplication in 7.836 seconds (process running for 9.073)
