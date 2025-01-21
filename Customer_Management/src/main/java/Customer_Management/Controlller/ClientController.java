@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
+import Customer_Management.Error.LocalNotFoundException;
 import Customer_Management.Model.ClientModel;
 import Customer_Management.Service.ClientService;
 import Customer_Management.routes.routes;
+import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,12 +19,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
+
 @RestController
 @RequestMapping(routes.Client)
 public class ClientController {
 
     @Autowired
-    ClientService clientService;
+    ClientService clientService; 
 
     @GetMapping(routes.GetAll)
     public List<ClientModel> getAll() {
@@ -30,12 +33,12 @@ public class ClientController {
     }
 
     @PostMapping(routes.Create)
-    public ClientModel Create(@RequestBody ClientModel model) {
+    public ClientModel Create(@Valid @RequestBody ClientModel model) {
         return clientService.add(model);
     }
 
     @GetMapping(routes.GetById)
-    public ClientModel getById(@PathVariable int id) {
+    public ClientModel getById(@PathVariable int id) throws LocalNotFoundException {
         return clientService.findById(id);
     }
 
@@ -45,8 +48,10 @@ public class ClientController {
     }
     
     @DeleteMapping(routes.Delete)
-    public boolean delete(@PathVariable int id) {
+    public boolean delete(@PathVariable int id) throws LocalNotFoundException {
         return clientService.delete(id);
     }
     
+
+
 }
