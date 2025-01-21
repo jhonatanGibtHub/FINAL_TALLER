@@ -18,32 +18,32 @@ spring:
               allowedMethods: "*"
               allowedHeaders: "*"
       routes:      
-      - id: appPAYMENT-MANAGEMENT
+      - id: PAYMENT-MANAGEMENT
         uri: http://localhost:81
         predicates:
           - Path=/PAYMENT-MANAGEMENT/**
         filters:
           - StripPrefix=1
-      - id: appRECEIPT_MANAGEMENT
+      - id: RECEIPT_MANAGEMENT
         uri: http://localhost:82
         predicates:
           - Path=/RECEIPT_MANAGEMENT/**
         filters:
           - StripPrefix=1
-          - JwtAuthenticationFilter
-      - id: appUser_Management
-        uri: http://localhost:83
+  
+      - id: User_Management
+        uri: http://localhost:8080
         predicates:
           - Path=/User_Management/**
         filters:
           - StripPrefix=1
-          - JwtAuthenticationFilter
-      - id: appCustomer_Management
-        uri: http://localhost:84
+  
+      - id: Customer_Management
+        uri: http://localhost:8082
         predicates:
           - Path=/Customer_Management/**
         filters:
           - StripPrefix=1
-          - JwtAuthenticationFilter
+  
            
   
